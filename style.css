@@ -29,8 +29,8 @@ body {
 
 .map-wrapper {
     position: relative;
-    width: 900px; /* Base width for the canvas display */
-    height: 600px; /* Base height for the canvas display */
+    width: 1280px; /* Base width for the canvas display */
+    height: 800px; /* Base height for the canvas display */
     overflow: hidden;
     border: 2px solid #ccc;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -90,7 +90,7 @@ body {
 .info-panel.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(-200px);
 }
 
 .info-panel h3 {
