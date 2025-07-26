@@ -1,0 +1,168 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.main-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start; /* Align map and directory at the top */
+}
+
+.map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.map-wrapper {
+    position: relative;
+    width: 900px; /* Base width for the canvas display */
+    height: 600px; /* Base height for the canvas display */
+    overflow: hidden;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background-color: #f8f8f8;
+}
+
+#floorMapCanvas {
+    display: block;
+    background-color: #fff;
+    cursor: grab;
+}
+
+#floorMapCanvas.grabbing {
+    cursor: grabbing;
+}
+
+/* "You Are Here" Marker */
+#you-are-here {
+    position: absolute;
+    top: 20px; /* Adjusted to be inside map-wrapper */
+    right: 20px; /* Adjusted to be inside map-wrapper */
+    width: 60px;
+    height: 60px;
+    background-color: #ff00ff; /* Magenta for visibility */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8em;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    line-height: 1.2;
+}
+
+
+/* Info Panel Styles */
+.info-panel {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    width: 400px; /* Wider for more info if needed */
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.info-panel.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.info-panel h3 {
+    margin-top: 0;
+    color: #00bfff;
+}
+
+.info-panel button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1em;
+    transition: background-color 0.2s;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.info-panel button:hover {
+    background-color: #c82333;
+}
+
+#reset-view {
+    background-color: #007bff;
+}
+
+#reset-view:hover {
+    background-color: #0056b3;
+}
+
+/* Tenant Directory */
+.tenant-directory {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px; /* Fixed width for the directory */
+    max-height: 600px; /* Match map wrapper height */
+    overflow-y: auto; /* Scroll if too many tenants */
+}
+
+.tenant-directory h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#tenantList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#tenantList li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+    color: #555;
+    font-weight: 500;
+}
+
+#tenantList li:last-child {
+    border-bottom: none;
+}
+
+#tenantList li:hover {
+    background-color: #e9e9e9;
+    color: #000;
+}
