@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const tenantListElement = document.getElementById('tenantList');
 
     // Define the original map dimensions (from your image aspect ratio)
-    const ORIGINAL_MAP_WIDTH = 900;
-    const ORIGINAL_MAP_HEIGHT = 600;
+    const ORIGINAL_MAP_WIDTH = 1280;
+    const ORIGINAL_MAP_HEIGHT = 800;
 
     // Set canvas dimensions to match the wrapper's CSS dimensions
     canvas.width = mapWrapper.clientWidth;
